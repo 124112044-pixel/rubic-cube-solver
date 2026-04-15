@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cube Capture (Phase 1)</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Rubik's Cube Capture (OpenCV)</h1>
+      <p>Capture all 6 faces, validate state, then solve later.</p>
+    </header>
+
+    <main class="layout">
+      <section class="capture-panel">
+        <div class="instruction-box">
+          <div id="stepText">Press Start Camera</div>
+          <div id="statusText" class="status">Idle</div>
+          <div class="status">Tip: Cube face must be centered inside overlay. In Captured Faces, click any sticker to correct color.</div>
+        </div>
+
+        <div class="camera-wrap">
+          <video id="video" autoplay playsinline muted></video>
+          <div class="overlay-grid" aria-hidden="true"></div>
+        </div>
+
+        <canvas id="snapshotCanvas" width="640" height="480" hidden></canvas>
+
+        <div class="actions">
+          <button id="startBtn">Start Camera</button>
+          <button id="captureBtn" disabled>Capture Face (or press any key)</button>
+          <button id="retakeBtn" disabled>Retake Current Face</button>
+          <button id="finalizeBtn" disabled>Validate Cube State</button>
+        </div>
+      </section>
+
+      <aside class="preview-panel">
+        <h2>Captured Faces</h2>
+        <div id="facesContainer" class="faces-container"></div>
+        <div id="resultBox" class="result-box"></div>
+      </aside>
+    </main>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
